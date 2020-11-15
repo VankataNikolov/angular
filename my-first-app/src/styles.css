@@ -1,4 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+/*
+*Removes all default whitespace
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/*
+*Reset CSS model sizing calculations
+*/
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+@import url('./assets/layout.css');
+@import url('./assets/reset.css');
+@import url('./assets/responsive.css');
+@import url('./assets/typography.css');
+
 body {
     max-width: 1366px;
     margin: auto;
