@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('./assets/layout.css');
+@import url('./assets/reset.css');
+@import url('./assets/responsive.css');
+@import url('./assets/typography.css');
+
 /*
 *Removes all default whitespace
 */
@@ -19,10 +25,6 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
-@import url('./assets/layout.css');
-@import url('./assets/reset.css');
-@import url('./assets/responsive.css');
-@import url('./assets/typography.css');
 
 body {
     max-width: 1366px;
