@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ITheme } from '../interfaces';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  themes: ITheme[];
+
+  constructor(private themeService: ThemeService) { }
 
   ngOnInit(): void {
+    this.themeService.getThemeList().subscribe(
+      themeList => this.themes = themeList
+    )
   }
 
 }
