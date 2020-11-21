@@ -1,0 +1,8 @@
+.header-container {
+  background: linear-gradient(90deg, #a07ebe 0%, #67aac1 41%, #18ad68 100%);
+}
+
+.header-container h1 {
+  text-align: center;
+  padding: 30px;
+}
