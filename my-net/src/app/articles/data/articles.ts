@@ -29,6 +29,14 @@ export const articlesList = [
             {
                 title: "Ilia Idakiev's github angular course",
                 url: "https://github.com/IliaIdakiev/softuni-ng-new"
+            },
+            {
+                title: "RxJS learning",
+                url: "https://www.learnrxjs.io/"
+            },
+            {
+                title: "Angular style guide",
+                url: "https://angular.io/guide/styleguide"
             }
         ]
     },
@@ -37,12 +45,20 @@ export const articlesList = [
         img: "../assets/images/dice.jpg",
         details: [
             {
+                title: "BoardGameGeek",
+                url: "https://www.boardgamegeek.com/"
+            },
+            {
                 title: "BardGamesBG - boardgame shop in Sofia",
                 url: "https://boardgames-bg.com/"
             },
             {
                 title: "Time2Play - boardgame shop in Sofia",
                 url: "https://time2play.bg/"
+            },
+            {
+                title: "BigBag - online store",
+                url: "https://bigbag.bg/"
             }
         ]
     }
