@@ -13,7 +13,6 @@ export class ArticleListComponent implements OnInit {
 
   constructor(public articleService: ArticlesService) { }
 
-  
   ngOnInit(): void {
     this.articles = this.articleService.loadArticles();
   }

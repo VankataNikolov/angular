@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IArticleDetails } from './articleDetails';
 import { IArticle } from './articleInterface';
 import { articlesList } from './data/articles';
 
@@ -13,5 +14,10 @@ export class ArticlesService {
 
   loadArticles(){
     return this.articles;
+  }
+
+  loadDetails(title: string): IArticleDetails[]{
+    title = title.toLowerCase();
+    return this.articles.find(a => a.title.toLowerCase() === title).details;
   }
 }

@@ -23,10 +23,12 @@
 
 .article .image {
   opacity: 0.7;
+  width: 50px;
+  height: 50px;
 }
 
 .article .image img {
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }

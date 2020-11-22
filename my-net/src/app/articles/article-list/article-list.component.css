@@ -9,3 +9,8 @@
 .articles-container .article {
   flex-basis: 20%;
 }
+
+.articles-container a {
+  text-decoration: none;
+  color: black;
+}
