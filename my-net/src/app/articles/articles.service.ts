@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { from, Observable } from 'rxjs';
+import { find } from 'rxjs/operators';
 import { IArticleDetails } from './articleDetails';
 import { IArticle } from './articleInterface';
 import { articlesList } from './data/articles';
@@ -16,8 +18,11 @@ export class ArticlesService {
     return this.articles;
   }
 
-  loadDetails(title: string): IArticleDetails[]{
+  loadDetails(title: string): Observable<IArticle>{
     title = title.toLowerCase();
-    return this.articles.find(a => a.title.toLowerCase() === title).details;
+    return from(this.articles).pipe(
+        find(a => a.title.toLowerCase() === title)
+      );
+
   }
 }

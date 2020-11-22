@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { subscribeOn } from 'rxjs/operators';
 import { IArticleDetails } from '../articleDetails';
 import { ArticlesService } from '../articles.service';
 
@@ -18,7 +19,8 @@ export class DetailsListComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.details = this.articleService.loadDetails(this.route.snapshot.params.title);
+    this.articleService.loadDetails(this.route.snapshot.params.title)
+      .subscribe(a => this.details = a.details);
   }
 
 }
