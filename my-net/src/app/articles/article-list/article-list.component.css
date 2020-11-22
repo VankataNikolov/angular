@@ -1,4 +1,11 @@
 .articles-container {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.articles-container .article {
+  flex-basis: 20%;
 }

@@ -1,0 +1,25 @@
+html {
+    font: 18px/1.5 Verdana, sans-serif;
+}
+
+body, form, input, textarea, option, select, button {
+    font: inherit;
+}
+
+ul, ol {
+    padding-bottom: 1.5em;
+}
+
+ul, ol {
+    padding-left: 2.5em;
+}
+
+blockquote, h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    font-weight: normal;
+}

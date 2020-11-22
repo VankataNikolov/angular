@@ -1,3 +1,8 @@
-<div class="article" [ngStyle]="{'background-image': 'url(' + img + ')'}">
+<div class="article" >
     <h3>{{title}}</h3>
+    <div class="image">
+        <img [src]="img" alt="logo">
+    </div>
 </div>
+
+<!-- [ngStyle]="{'background-image': 'url(' + img + ')'}" -->
