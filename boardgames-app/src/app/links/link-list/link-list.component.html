@@ -1,0 +1,6 @@
+<mat-list class="list-container" role="list">
+    <mat-list-item class="link-continer" *ngFor="let link of linkList" role="listitem">
+        <a [href]="link.url" target="blank">{{link.title}}</a>
+    </mat-list-item>
+</mat-list>
+  

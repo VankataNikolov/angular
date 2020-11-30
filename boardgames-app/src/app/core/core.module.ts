@@ -4,13 +4,15 @@ import { HeaderComponent } from './header/header.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedModule } from '../shared/shared.module';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [HeaderComponent],
   imports: [
     CommonModule,
     SharedModule,
-    MatToolbarModule
+    MatToolbarModule,
+    AppRoutingModule
   ],
   exports: [
     HeaderComponent

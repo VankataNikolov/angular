@@ -1,9 +1,15 @@
-.example-card {
+.card {
     max-width: 200px;
     margin: 20px;
 
     .mat-card-header{
         justify-content: center;
+        align-items: center;
+        min-height: 80px;
+    }
+
+    img{
+        height: 180px;
     }
 
     mat-card-actions{

@@ -3,6 +3,10 @@
   justify-content: space-between;
 }
 
+.container header {
+  display: flex;
+}
+
 .container h1 {
   font-size: 24px;
 }
@@ -13,4 +17,6 @@
   border-radius: 10px;
   background-color: #55b989;
   font-size: 16px;
+  text-decoration: none;
+  color: white;
 }

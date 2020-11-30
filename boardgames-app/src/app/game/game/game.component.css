@@ -1,13 +1,19 @@
-.example-card {
+.card {
   max-width: 200px;
   margin: 20px;
 }
 
-.example-card .mat-card-header {
+.card .mat-card-header {
   justify-content: center;
+  align-items: center;
+  min-height: 80px;
 }
 
-.example-card mat-card-actions {
+.card img {
+  height: 180px;
+}
+
+.card mat-card-actions {
   display: flex;
   justify-content: space-around;
 }
