@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
+import { UserModule } from '../user/user.module';
 
 @NgModule({
   declarations: [HeaderComponent],
@@ -12,7 +13,8 @@ import { AppRoutingModule } from '../app-routing.module';
     CommonModule,
     SharedModule,
     MatToolbarModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UserModule
   ],
   exports: [
     HeaderComponent

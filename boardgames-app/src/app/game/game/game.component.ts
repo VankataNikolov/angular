@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-game',
@@ -12,10 +13,12 @@ export class GameComponent implements OnInit {
   @Input() description: string;
 
   hidden: boolean = false;
-  isLogged: boolean = true;
+  get isLogged(): boolean {
+    return this.userService.isLogged;
+  }
   info = "show info";
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   toggleHide(){
     this.hidden = !this.hidden;

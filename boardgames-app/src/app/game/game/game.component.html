@@ -11,7 +11,9 @@
     </mat-card-content>
     <mat-card-actions>
         <button mat-button (click)="toggleHide()">{{info}}</button>
-        <button mat-button *ngIf="isLogged">comment</button>
-        <button mat-button *ngIf="isLogged">show comments</button>
+        <div class="logged-actions" *ngIf="isLogged">
+            <button mat-button>comment</button>
+            <button mat-button>show comments</button>
+        </div>
     </mat-card-actions>
 </mat-card>

@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { GameListComponent } from './game-list/game-list.component';
 import { SharedModule } from '../shared/shared.module';
+import { UserModule } from '../user/user.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     MatCardModule,
     SharedModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    UserModule
   ],
   exports: [
     GameComponent,

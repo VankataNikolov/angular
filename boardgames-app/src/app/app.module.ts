@@ -10,6 +10,9 @@ import { MatCardModule } from '@angular/material/card';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { LinksModule } from './links/links.module';
+import { UserModule } from './user/user.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { LinksModule } from './links/links.module';
     CoreModule,
     MatToolbarModule,
     MatCardModule,
-    LinksModule
+    LinksModule,
+    UserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,8 +5,18 @@
             <a routerLink="/">Home</a>
         </nav>
     </header>
-    <nav class="nav">
-        <a>Login</a>
-        <a>Register</a>
+    <p *ngIf="isLogged" class="welcome">
+        Welcome {{userName}} !
+    </p>
+    <nav *ngIf="!isLogged; else logged" class="nav">
+        <a routerLink="/user/login">Login</a>
+        <a routerLink="/user/register">Register</a>
     </nav>
 </mat-toolbar>
+
+<ng-template #logged>
+    <nav class="nav">
+        <a routerLink="/user/newgame">Add game</a>
+        <a (click)="logoutHandler()">Logout</a>
+    </nav>
+</ng-template>

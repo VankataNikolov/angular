@@ -1,0 +1,71 @@
+form.register {
+  width: 40%;
+  margin: 2em auto 0;
+  text-align: center;
+}
+
+.register fieldset {
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.register h2 {
+  padding-top: 0;
+  border-bottom: none;
+}
+
+.register p {
+  padding-bottom: 0;
+  padding-top: 20px;
+}
+
+.register label {
+  min-width: 60px;
+}
+
+.register input {
+  flex: 0 1 75%;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.register button {
+  background-color: #55b989;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 30px;
+  width: 40%;
+  outline: none;
+}
+
+.register button:hover {
+  cursor: pointer;
+}
+
+.register a {
+  color: #7B1FA2;
+}
+
+.register a:hover {
+  color: #7B1FA2;
+}
+
+.register .field {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 0;
+}
+
+.register p.error {
+  text-align: left;
+  color: red;
+  padding-top: 0;
+}
+
+.register input.input-error {
+  border: 1px solid red;
+}
