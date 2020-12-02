@@ -4,7 +4,7 @@ import { HeaderComponent } from './header/header.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedModule } from '../shared/shared.module';
-import { AppRoutingModule } from '../app-routing.module';
+import { RouterModule } from '@angular/router';
 import { UserModule } from '../user/user.module';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { UserModule } from '../user/user.module';
     CommonModule,
     SharedModule,
     MatToolbarModule,
-    AppRoutingModule,
+    RouterModule,
     UserModule
   ],
   exports: [

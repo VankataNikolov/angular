@@ -1,6 +1,7 @@
 .card {
-  max-width: 200px;
+  width: 200px;
   margin: 20px;
+  padding: 5px;
 }
 
 .card .mat-card-header {
@@ -9,15 +10,23 @@
   min-height: 80px;
 }
 
-.card img {
-  height: 180px;
+.card .img-container {
+  width: 100%;
+  height: 150px;
+}
+
+.card .img-container img {
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 .card mat-card-actions {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
-.card mat-card-actions .logged-actions {
-  display: flex;
+.card mat-card-actions button {
+  margin-bottom: 20px;
+  border-radius: 5px;
 }

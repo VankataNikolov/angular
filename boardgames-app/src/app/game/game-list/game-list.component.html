@@ -1,6 +1,6 @@
 <div class="list-wrapper">
     <div *ngFor="let game of games">
-        <app-game [title]="game.title" [image]="game.image" [description]="game.description"></app-game>
+        <app-game [title]="game.title" [image]="game.image" [description]="game.description" [gameId]="game.objectId"></app-game>
     </div>
 </div>
 <mat-paginator [length]="gamesData.length" [pageSize]="pageSize" [hidePageSize]="true" (page)="handlePage($event)"></mat-paginator>

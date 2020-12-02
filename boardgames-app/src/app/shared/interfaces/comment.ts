@@ -1,4 +1,5 @@
 export interface IComment {
+    "title": string,
     "gameID": string,
     "created": number,
     "___class": string,

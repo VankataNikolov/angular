@@ -11,8 +11,8 @@ export class GameComponent implements OnInit {
   @Input() title: string;
   @Input() image: string;
   @Input() description: string;
+  @Input() gameId: string;
 
-  hidden: boolean = false;
   get isLogged(): boolean {
     return this.userService.isLogged;
   }
@@ -20,9 +20,8 @@ export class GameComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  toggleHide(){
-    this.hidden = !this.hidden;
-    this.info = this.hidden ? "hide info" : "show info";
+  showInfo(){
+    
   }
 
   ngOnInit(): void {

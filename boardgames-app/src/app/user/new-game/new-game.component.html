@@ -6,12 +6,16 @@
         <p class="field">
             <label for="title">Title</label>
             <input #gameTitle="ngModel" [class.input-error]="gameTitle.touched && !!gameTitle.errors" type="text"
-                name="title" id="title" placeholder="Star Wars" ngModel required>
+                name="title" id="title" placeholder="Star Wars" ngModel required maxlength="100">
         </p>
 
         <p *ngIf="gameTitle.touched && gameTitle.errors?.required" class="error">
             Title is required!
         </p>
+
+        <p *ngIf="gameTitle.touched && gameTitle.errors?.maxlength" class="error">
+          Maximum characters is 100!
+      </p>
 
         <p class="field">
             <label for="image">Image URL</label>
@@ -26,7 +30,7 @@
         <p class="field">
             <label for="description">Description</label>
             <textarea cols="30" rows="10" #gameDescr="ngModel" [class.input-error]="gameDescr.touched && !!gameDescr.errors" type="text"
-                name="description" id="description" ngModel required maxlength="250"></textarea>
+                name="description" id="description" ngModel required maxlength="500"></textarea>
       </p>
 
       <p *ngIf="gameDescr.touched && gameDescr.errors?.required" class="error">
@@ -34,7 +38,7 @@
       </p>
 
       <p *ngIf="gameDescr.touched && gameDescr.errors?.maxlength" class="error">
-        maximum characters 250!
+        maximum characters 500!
       </p>
 
       <button [disabled]="isLoading || f.invalid">Add</button>

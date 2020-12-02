@@ -1,37 +1,37 @@
-form.login {
+form.new-game {
   width: 40%;
   margin: 2em auto 0;
   text-align: center;
 }
 
-.login fieldset {
+.new-game fieldset {
   border-radius: 5px;
   padding: 20px;
   background-color: #ffffff;
 }
 
-.login h2 {
+.new-game h2 {
   padding-top: 0;
   border-bottom: none;
 }
 
-.login p {
+.new-game p {
   padding-bottom: 0;
   padding-top: 20px;
 }
 
-.login label {
+.new-game label {
   min-width: 60px;
 }
 
-.login input {
+.new-game input {
   flex: 0 1 75%;
   border: 1px solid black;
   padding: 5px;
   border-radius: 5px;
 }
 
-.login button {
+.new-game button {
   background-color: #55b989;
   color: white;
   border: none;
@@ -42,30 +42,30 @@ form.login {
   outline: none;
 }
 
-.login button:hover {
+.new-game button:hover {
   cursor: pointer;
 }
 
-.login a {
+.new-game a {
   color: #7B1FA2;
 }
 
-.login a:hover {
+.new-game a:hover {
   color: #7B1FA2;
 }
 
-.login .field {
+.new-game .field {
   display: flex;
   justify-content: space-around;
   padding-bottom: 0;
 }
 
-.login p.error {
+.new-game p.error {
   text-align: left;
   color: red;
   padding-top: 0;
 }
 
-.login input.input-error {
+.new-game input.input-error {
   border: 1px solid red;
 }

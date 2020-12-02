@@ -6,16 +6,19 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { GameListComponent } from './game-list/game-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { UserModule } from '../user/user.module';
+import { RouterModule } from '@angular/router';
+import { DetailComponent } from './detail/detail.component';
 
 
 @NgModule({
-  declarations: [GameComponent, GameListComponent],
+  declarations: [GameComponent, GameListComponent, DetailComponent],
   imports: [
     CommonModule,
     MatCardModule,
     SharedModule,
     MatPaginatorModule,
-    UserModule
+    UserModule,
+    RouterModule
   ],
   exports: [
     GameComponent,

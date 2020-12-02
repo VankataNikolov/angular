@@ -9,7 +9,7 @@
 }
 
 .container .card img {
-  max-height: 200px;
+  height: 200px;
 }
 
 .container mat-card-actions {

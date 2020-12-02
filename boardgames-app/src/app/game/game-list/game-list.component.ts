@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { IGame } from 'src/app/shared/interfaces';
 import { GameService } from '../game.service';
 
 @Component({
@@ -12,9 +13,13 @@ export class GameListComponent implements OnInit {
   pageSize = 4;
   currentPage = 0;
 
-  gamesData: any;
+  gamesData: IGame[] = [];
 
-  games: any;
+  games: IGame[] = [];
+
+  isLoading = false;
+
+  errorMessage = '';
 
   constructor(private gameService: GameService) { 
     
@@ -27,7 +32,6 @@ export class GameListComponent implements OnInit {
   }
 
   private iterator() {
-    this.gamesData = this.gameService.loadGames();
     const end = (this.currentPage + 1) * this.pageSize;
     const start = this.currentPage * this.pageSize;
     const part = this.gamesData.slice(start, end);
@@ -35,6 +39,18 @@ export class GameListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
+    this.gameService.loadGames().subscribe({
+      next: (data) => {
+        this.gamesData = data;
+        this.isLoading = false;
+        this.iterator();
+      },
+      error: (err) => {
+        this.errorMessage = err.error.message;
+        this.isLoading = false;
+      }
+    });
     this.iterator();
   }
 

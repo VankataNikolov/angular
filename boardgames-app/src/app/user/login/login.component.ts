@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   submitFormHandler(formValue: { email: string, password: string }): void{
+    this.isLoading = true;
     this.userService.login({login: formValue.email, password: formValue.password}).subscribe({
       next: (data) => {
         this.isLoading = false;
