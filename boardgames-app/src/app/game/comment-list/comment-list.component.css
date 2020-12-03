@@ -1,0 +1,40 @@
+.empty {
+  text-align: center;
+}
+
+.container {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.container article {
+  margin-bottom: 10px;
+  border: 1px solid gray;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 1px rgba(128, 128, 128, 0.75);
+}
+
+.container article:nth-child(odd) {
+  background-color: rgba(247, 250, 212, 0.75);
+}
+
+.container article:nth-child(even) {
+  background-color: rgba(226, 252, 253, 0.75);
+}
+
+.container article p {
+  margin-bottom: 5px;
+}
+
+.container article .title {
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.container article .created {
+  text-align: right;
+  font-style: italic;
+  font-size: 10px;
+  margin: 0;
+}

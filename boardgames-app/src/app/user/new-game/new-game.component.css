@@ -69,3 +69,7 @@ form.new-game {
 .new-game input.input-error {
   border: 1px solid red;
 }
+
+.new-game #description {
+  resize: none;
+}

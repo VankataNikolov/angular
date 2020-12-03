@@ -1,4 +1,6 @@
-<div class="info-container">
+<app-loader [isLoading]="isLoading"></app-loader>
+<div *ngIf="!isLoading" class="info-container">
+    <h2 *ngIf="errorMessage.length > 0">{{errorMessage}}</h2>
     <div class="img-wrapper">
         <img [src]="game.image" alt="game picture">
     </div>
@@ -9,5 +11,6 @@
 </div>
 
 <div class="comments-container">
-
+    <h3>Comments:</h3>
+    <app-comment-list></app-comment-list>
 </div>

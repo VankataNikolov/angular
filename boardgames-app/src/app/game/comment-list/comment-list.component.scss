@@ -1,0 +1,39 @@
+.empty{
+    text-align: center;
+}
+
+.container{
+    width: 700px;
+    margin: 0 auto;
+    article{
+        margin-bottom: 10px;
+        border: 1px solid gray;
+        padding: 10px 15px;
+        border-radius: 5px;
+        box-shadow: 0 0 2px 1px rgba(128,128,128, 0.75);
+
+        &:nth-child(odd) {
+            background-color: rgba(247, 250, 212, 0.75);
+        }
+
+        &:nth-child(even) {
+            background-color: rgba(226, 252, 253, 0.75);
+        }
+
+        p{
+            margin-bottom: 5px;
+        }
+
+        .title{
+            font-weight: bold;
+            padding-left: 10px;
+        }
+
+        .created{
+            text-align: right;
+            font-style: italic;
+            font-size: 10px;
+            margin: 0;
+        }
+    }
+}

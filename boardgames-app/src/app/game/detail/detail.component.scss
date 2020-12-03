@@ -17,4 +17,18 @@
             object-fit: contain;
         }
     }
+
+    .content h3{
+        font-weight: bold;
+    }
+}
+
+.comments-container{
+    width: 80%;
+    margin: 0 auto;
+    padding: 0 10px;
+
+    h3{
+        text-align: center;
+    }
 }

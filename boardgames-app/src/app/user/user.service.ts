@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { IUser } from '../shared/interfaces';
+import { AuthService } from '../shared/auth.service';
 
 const apiUrl = environment.baseUrl;
 
@@ -13,39 +14,42 @@ const apiUrl = environment.baseUrl;
 })
 export class UserService {
 
+  token: string = 'user-token';
+
   currentUser: IUser | null = null;
 
-  get isLogged(): boolean { return !!this.currentUser; }
+  isLogged: boolean = false;
 
-  headers = {
-    'user-token': ''
+  constructor(private http: HttpClient, private authService: AuthService) {
+    this.isLogged = !!this.authService.getToken(this.token);
   }
 
-  constructor(private http: HttpClient) { }
-
-  register(data: {"email" : string, "password" : string, "name" : string}): Observable<any> {
-    return this.http.post(`${apiUrl}/users/register`, data);
+  register(data: { "email": string, "password": string, "name": string }): Observable<any> {
+    return this.http.post(`${apiUrl}/users/register`, {
+      "email": data.email, "password": data.password, "name": data.name});
   }
 
-  login(data: {login: string, password: string}): Observable<IUser> {
+  login(data: { login: string, password: string }): Observable<IUser> {
     return this.http.post(`${apiUrl}/users/login`, data).pipe(
       tap((user: IUser) => {
         this.currentUser = user;
-        this.headers['user-token'] = user["user-token"];
+        this.authService.setToken(this.token, user["user-token"]);
+        this.authService.setToken('userName', user.name)
       })
     );
   }
 
   logout(): Observable<any> {
-    return this.http.get(`${apiUrl}/users/logout`, {headers: this.headers}).pipe(
+    return this.http.get(`${apiUrl}/users/logout`, { headers: this.authService.getToken(this.token) }).pipe(
       tap(() => {
         this.currentUser = null;
-        this.headers['user-token'] = '';
+        this.authService.remove(this.token);
+        this.authService.remove('userName')
       })
     );
   }
 
-  postGame(data: {title: string, image?: string, description: string}) {
-    return this.http.post(`${apiUrl}/data/boardgames`, data, {headers: this.headers})
+  postGame(data: { title: string, image?: string, description: string }) {
+    return this.http.post(`${apiUrl}/data/boardgames`, data, { headers: this.authService.getToken(this.token) });
   }
 }

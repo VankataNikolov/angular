@@ -8,21 +8,25 @@ import { SharedModule } from '../shared/shared.module';
 import { UserModule } from '../user/user.module';
 import { RouterModule } from '@angular/router';
 import { DetailComponent } from './detail/detail.component';
+import { CommentListComponent } from './comment-list/comment-list.component';
 
 
 @NgModule({
-  declarations: [GameComponent, GameListComponent, DetailComponent],
+  declarations: [
+    GameComponent,
+    GameListComponent,
+    DetailComponent,
+    CommentListComponent
+  ],
   imports: [
     CommonModule,
     MatCardModule,
     SharedModule,
     MatPaginatorModule,
-    UserModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
-    GameComponent,
-    GameListComponent
+
   ]
 })
 export class GameModule { }

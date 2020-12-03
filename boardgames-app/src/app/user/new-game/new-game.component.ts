@@ -23,7 +23,7 @@ export class NewGameComponent implements OnInit {
     this.userService.postGame(formValue).subscribe({
       next: (data) => {
         this.isLoading = false;
-        this.router.navigate(['/gamelist']);
+        this.router.navigate(['/game/list']);
       },
       error: (err) => {
         this.errorMessage = err.error.message;

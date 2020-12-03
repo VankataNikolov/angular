@@ -1,29 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IGame } from 'src/app/shared/interfaces';
+import { IComment } from 'src/app/shared/interfaces';
 import { GameService } from '../game.service';
 
 @Component({
-  selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  selector: 'app-comment-list',
+  templateUrl: './comment-list.component.html',
+  styleUrls: ['./comment-list.component.scss']
 })
-export class DetailComponent implements OnInit {
+export class CommentListComponent implements OnInit {
 
-  game: IGame;
+  commentList: IComment[] = [];
 
   isLoading: boolean = false;
 
   errorMessage: string = '';
 
-  constructor(private gameService: GameService, private route: ActivatedRoute) { }
+  constructor(
+    private gameService: GameService,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.isLoading = true;
+    this.errorMessage = '';
     const gameID = this.route.snapshot.params.id;
-    this.gameService.loadDetails(gameID).subscribe({
+    this.gameService.loadComments(gameID).subscribe({
       next: (data) => {
-        this.game = data;
+        this.commentList = data;
         this.isLoading = false;
       },
       error: (err) => {

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { throwToolbarMixedModesError } from '@angular/material/toolbar';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/auth.service';
 import { UserService } from 'src/app/user/user.service';
 
 @Component({
@@ -10,14 +10,17 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class HeaderComponent {
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private authService: AuthService) { }
 
   get isLogged(): boolean {
-    return this.userService.isLogged;
+    return this.authService.getToken('user-token');
   }
 
   get userName(): string {
-    return this.userService.currentUser.name;
+    return this.authService.getToken('userName');
   }
   
   logoutHandler(): void {

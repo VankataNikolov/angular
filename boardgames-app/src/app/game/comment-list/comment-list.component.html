@@ -1,0 +1,15 @@
+<app-loader [isLoading]="isLoading"></app-loader>
+<div class="empty" *ngIf="commentList.length<1 && errorMessage.length<1">
+    <p>There are no comments for this game!</p>
+</div>
+<div class="empty" *ngIf="errorMessage.length > 0">
+    <p>{{errorMessage}}</p>
+</div>
+<div class="container">
+    <article *ngFor="let comment of commentList">
+        <p class="title">{{comment.title}}</p>
+        <p class="comment">{{comment.comment}}</p>
+        <p class="created">{{comment.created | date}}</p>
+    </article>
+</div>
+
