@@ -7,20 +7,18 @@ import { UserService } from '../user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   isLoading = false;
-  errorMessage = 'ok';
+  errorMessage = "";
 
   constructor(
     private userService: UserService,
     private router: Router) { }
 
-  ngOnInit(): void {
-  }
-
   submitFormHandler(formValue: { email: string, password: string }): void{
     this.isLoading = true;
+    this.errorMessage = "";
     this.userService.login({login: formValue.email, password: formValue.password}).subscribe({
       next: (data) => {
         this.isLoading = false;
@@ -29,6 +27,7 @@ export class LoginComponent implements OnInit {
       error: (err) => {
         this.errorMessage = err.error.message;
         this.isLoading = false;
+        setTimeout(() => { this.errorMessage = ""; }, 6000);
       }
     });
   }

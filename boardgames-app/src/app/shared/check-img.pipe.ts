@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CheckImgPipe implements PipeTransform {
 
-  transform(value: string, defaultImg: string): unknown {
-    return value.length === 0 ? defaultImg : value;
+  transform(value: string, defaultImg: string): string {
+    return value.trim().length === 0 ? defaultImg : value;
   }
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/auth.service';
+import { IPostGame } from 'src/app/shared/interfaces';
 import { UserService } from '../user.service';
 
 @Component({
@@ -10,16 +12,21 @@ import { UserService } from '../user.service';
 export class NewGameComponent implements OnInit {
 
   isLoading = false;
-  errorMessage = 'ok';
+  errorMessage = "";
+
+  maxLen = 500;
 
   constructor(
     private userService: UserService,
+    private authService : AuthService,
     private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  submitFormHandler(formValue: { title: string, image?: string, description: string }): void{
+  submitFormHandler(formValue: IPostGame): void{
+    this.isLoading = true;
+    this.errorMessage = "";
     this.userService.postGame(formValue).subscribe({
       next: (data) => {
         this.isLoading = false;
@@ -28,6 +35,7 @@ export class NewGameComponent implements OnInit {
       error: (err) => {
         this.errorMessage = err.error.message;
         this.isLoading = false;
+        setTimeout(() => { this.errorMessage = ""; }, 6000);
       }
     });
   }

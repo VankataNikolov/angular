@@ -1,59 +1,60 @@
 <form #f="ngForm" class="register" (ngSubmit)="submitFormHandler(f.value)">
 
-    <fieldset>
-      <h2>Register Form</h2>
-  
-      <p class="field">
-        <label for="email">Email</label>
-        <input #userEmail="ngModel" [class.input-error]="userEmail.touched && !!userEmail.errors" type="email" name="email"
-          id="email" placeholder="john.doe@gmail.com" ngModel pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
-      </p>
-  
-      <p *ngIf="userEmail.touched && userEmail.errors?.required" class="error">
-        Email is required!
-      </p>
-      <p *ngIf="userEmail.touched && userEmail.errors?.pattern" class="error">
-        Email is not valid!
-      </p>
-  
-      <p class="field">
-        <label for="name">Name</label>
-        <input #userName="ngModel" [class.input-error]="userName.touched && !!userName.errors" type="text" name="name"
-          id="name" placeholder="Ivan Ivanov" ngModel required minlength="4">
-      </p>
+  <fieldset>
+    <h2>Register Form</h2>
 
-      <p *ngIf="userName.touched && userName.errors?.required" class="error">
-        Name is required!
-      </p>
-      <p *ngIf="userName.touched && userName.errors?.minlength" class="error">
-        Name must be at least 4 characters!
-      </p>
+    <p class="field">
+      <label for="email">Email</label>
+      <input #userEmail="ngModel" [class.input-error]="userEmail.touched && !!userEmail.errors" type="email"
+        name="email" id="email" placeholder="john.doe@gmail.com" ngModel
+        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+    </p>
 
-      <p class="field">
-        <label for="password">Password</label>
-        <input #userPassword="ngModel" [class.input-error]="userPassword.touched && !!userPassword.errors" type="password"
-          name="password" id="password" placeholder="******" ngModel required minlength="6">
-      </p>
-      <p *ngIf="userPassword.touched && userPassword.errors?.required" class="error">
-        Password is required!
-      </p>
-      <p *ngIf="userPassword.touched && userPassword.errors?.minlength" class="error">
-        Password must be at least 6 characters!
-      </p>
+    <p *ngIf="userEmail.touched && userEmail.errors?.required" class="error">
+      Email is required!
+    </p>
+    <p *ngIf="userEmail.touched && userEmail.errors?.pattern" class="error">
+      Email is not valid!
+    </p>
 
-      <p class="field">
-        <label for="repassword">Password</label>
-        <input #userRepassword="ngModel" [class.input-error]="userRepassword.touched && !!userRepassword.errors" type="password"
-          name="repassword" id="repassword" placeholder="******" ngModel required minlength="6">
-      </p>
+    <p class="field">
+      <label for="name">Name</label>
+      <input #userName="ngModel" [class.input-error]="userName.touched && !!userName.errors" type="text" name="name"
+        id="name" placeholder="Ivan Ivanov" ngModel required minlength="4">
+    </p>
 
-      <p *ngIf="userRepassword.touched && userRepassword.value !== userPassword.value" class="error">
-        Password not match!
-      </p>
-  
-      <button [disabled]="isLoading || f.invalid">Register</button>
-      <!-- <app-loader [isLoading]="isLoading"></app-loader> -->
+    <p *ngIf="userName.touched && userName.errors?.required" class="error">
+      Name is required!
+    </p>
+    <p *ngIf="userName.touched && userName.errors?.minlength" class="error">
+      Name must be at least 4 characters!
+    </p>
 
-  {{errorMessage}}
-    </fieldset>
-  </form>
+    <p class="field">
+      <label for="password">Password</label>
+      <input #userPassword="ngModel" [class.input-error]="userPassword.touched && !!userPassword.errors" type="password"
+        name="password" id="password" placeholder="******" ngModel required minlength="6">
+    </p>
+    <p *ngIf="userPassword.touched && userPassword.errors?.required" class="error">
+      Password is required!
+    </p>
+    <p *ngIf="userPassword.touched && userPassword.errors?.minlength" class="error">
+      Password must be at least 6 characters!
+    </p>
+
+    <p class="field">
+      <label for="repassword">Password</label>
+      <input #userRepassword="ngModel" [class.input-error]="userRepassword.touched && !!userRepassword.errors"
+        type="password" name="repassword" id="repassword" placeholder="******" ngModel required minlength="6">
+    </p>
+
+    <p *ngIf="userRepassword.touched && userRepassword.value !== userPassword.value" class="error">
+      Password not match!
+    </p>
+
+    <button [disabled]="isLoading || f.invalid">Register</button>
+    <app-loader [isLoading]="isLoading"></app-loader>
+
+    <p *ngIf="errorMessage.length>0" class="error">{{errorMessage}}</p>
+  </fieldset>
+</form>

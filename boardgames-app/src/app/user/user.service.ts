@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { IUser } from '../shared/interfaces';
+import { ILogin, IUser, IRegister, IPostGame, IPostComment } from '../shared/interfaces';
 import { AuthService } from '../shared/auth.service';
 
 const apiUrl = environment.baseUrl;
@@ -24,17 +24,18 @@ export class UserService {
     this.isLogged = !!this.authService.getToken(this.token);
   }
 
-  register(data: { "email": string, "password": string, "name": string }): Observable<any> {
+  register(data: IRegister): Observable<any> {
     return this.http.post(`${apiUrl}/users/register`, {
       "email": data.email, "password": data.password, "name": data.name});
   }
 
-  login(data: { login: string, password: string }): Observable<IUser> {
+  login(data: ILogin): Observable<IUser> {
     return this.http.post(`${apiUrl}/users/login`, data).pipe(
       tap((user: IUser) => {
         this.currentUser = user;
         this.authService.setToken(this.token, user["user-token"]);
-        this.authService.setToken('userName', user.name)
+        this.authService.setToken('userName', user.name);
+        this.authService.setToken('ownerId', user.ownerId)
       })
     );
   }
@@ -44,12 +45,19 @@ export class UserService {
       tap(() => {
         this.currentUser = null;
         this.authService.remove(this.token);
-        this.authService.remove('userName')
+        this.authService.remove('userName');
+        this.authService.remove('ownerId')
       })
     );
   }
 
-  postGame(data: { title: string, image?: string, description: string }) {
+  postGame(data: IPostGame): Observable<any> {
+    data['ownerId'] = this.authService.getToken('ownerId');
     return this.http.post(`${apiUrl}/data/boardgames`, data, { headers: this.authService.getToken(this.token) });
+  }
+
+  postComment(data: IPostComment): Observable<any> {
+    data['ownerId'] = this.authService.getToken('ownerId');
+    return this.http.post(`${apiUrl}/data/comments`, data, { headers: this.authService.getToken(this.token) })
   }
 }

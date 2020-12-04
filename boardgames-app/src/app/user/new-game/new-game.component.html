@@ -1,49 +1,51 @@
 <form #f="ngForm" class="new-game" (ngSubmit)="submitFormHandler(f.value)">
 
-    <fieldset>
-        <h2>New Game</h2>
+  <fieldset>
+    <h2>New Game</h2>
 
-        <p class="field">
-            <label for="title">Title</label>
-            <input #gameTitle="ngModel" [class.input-error]="gameTitle.touched && !!gameTitle.errors" type="text"
-                name="title" id="title" placeholder="Star Wars" ngModel required maxlength="100">
-        </p>
+    <p class="field">
+      <label for="title">Title</label>
+      <input #gameTitle="ngModel" [class.input-error]="gameTitle.touched && !!gameTitle.errors" type="text" name="title"
+        id="title" placeholder="Star Wars" ngModel required maxlength="100">
+    </p>
 
-        <p *ngIf="gameTitle.touched && gameTitle.errors?.required" class="error">
-            Title is required!
-        </p>
+    <p *ngIf="gameTitle.touched && gameTitle.errors?.required" class="error">
+      Title is required!
+    </p>
 
-        <p *ngIf="gameTitle.touched && gameTitle.errors?.maxlength" class="error">
-          Maximum characters is 100!
-      </p>
+    <p *ngIf="gameTitle.touched && gameTitle.errors?.maxlength" class="error">
+      Maximum characters is 100!
+    </p>
 
-        <p class="field">
-            <label for="image">Image URL</label>
-            <input #gameImage="ngModel" [class.input-error]="gameImage.touched && !!gameImage.errors" type="text"
-                name="image" id="image" ngModel>
-        </p>
+    <p class="field">
+      <label for="image">Image URL</label>
+      <input #gameImage="ngModel" [class.input-error]="gameImage.touched && !!gameImage.errors" type="text" name="image"
+        id="image" ngModel
+        pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+(?:png|jpg|jpeg|gif|svg)+$">
+    </p>
 
-        <!-- <p *ngIf="gameImage.touched && gameImage.errors?.minlength" class="error">
-        Password must be at least 6 characters!
-      </p> -->
+    <p *ngIf="gameImage.touched && gameImage.value.length>0 && gameImage.errors?.pattern" class="error">
+      Image must be url or empty !
+    </p>
 
-        <p class="field">
-            <label for="description">Description</label>
-            <textarea cols="42" rows="5" #gameDescr="ngModel" [class.input-error]="gameDescr.touched && !!gameDescr.errors" type="text"
-                name="description" id="description" ngModel required maxlength="500"></textarea>
-      </p>
+    <p class="field">
+      <label for="description">Description</label>
+      <textarea cols="42" rows="5" #gameDescr="ngModel" [class.input-error]="gameDescr.touched && !!gameDescr.errors"
+        type="text" name="description" id="description" maxlength="maxLen" ngModel></textarea>
+    </p>
+    <p class="countdown">{{gameDescr.value.length | countDown: maxLen}}</p>
 
-      <p *ngIf="gameDescr.touched && gameDescr.errors?.required" class="error">
-        description is required!
-      </p>
+    <p *ngIf="gameDescr.touched && gameDescr.value.length <= 0" class="error">
+      description is required!
+    </p>
 
-      <p *ngIf="gameDescr.touched && gameDescr.errors?.maxlength" class="error">
-        maximum characters 500!
-      </p>
+    <p *ngIf="gameDescr.touched && gameDescr.errors?.maxlength" class="error">
+      maximum characters is 500!
+    </p>
 
-      <button [disabled]="isLoading || f.invalid">Add</button>
-      <!-- <app-loader [isLoading]="isLoading"></app-loader> -->
+    <button [disabled]="isLoading || f.invalid">Add</button>
+    <app-loader [isLoading]="isLoading"></app-loader>
 
-  {{errorMessage}}
-    </fieldset>
+    <p *ngIf="errorMessage.length>0" class="error">{{errorMessage}}</p>
+  </fieldset>
 </form>

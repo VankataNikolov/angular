@@ -22,7 +22,6 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     GameModule,
     CoreModule,
@@ -31,7 +30,8 @@ import { SharedModule } from './shared/shared.module';
     LinksModule,
     UserModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
