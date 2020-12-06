@@ -1,3 +1,5 @@
+@import '../../../button_mixin.scss';
+
 .info-container{
     width: 80%;
     margin: 30px auto;
@@ -8,7 +10,7 @@
     }
 
     .img-wrapper{
-        width: 300px;
+        width: 400px;
         height: 150px;
 
         img{
@@ -31,4 +33,16 @@
     h3{
         text-align: center;
     }
+}
+
+.btn-comment{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    button{
+        @include mainButton;
+    }
+    
+    
 }

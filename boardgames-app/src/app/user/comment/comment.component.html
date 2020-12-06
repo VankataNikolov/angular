@@ -1,0 +1,29 @@
+<form #f="ngForm" class="game-comment" (ngSubmit)="submitFormHandler(f.value)">
+
+    <fieldset>
+        <p class="field">
+            <label for="ttle">Title</label>
+            <input #title="ngModel" [class.input-error]="title.touched && !!title.errors" type="text" name="title"
+                id="title" ngModel required>
+        </p>
+        <p *ngIf="title.touched && title.errors?.required" class="error">
+            Title is required!
+        </p>
+
+        <p class="field">
+            <label for="comment">Comment</label>
+            <textarea #comment="ngModel"
+                [class.input-error]="comment.touched && !!comment.errors" type="text" name="comment"
+                id="comment" cols="70" rows="4" maxlength="maxLen" ngModel></textarea>
+        </p>
+        <p class="countdown">{{comment.value?.length | countDown: maxLen}}</p>
+
+        <p *ngIf="comment.touched && comment.value?.length <= 0" class="error">
+            Comment text is required!
+        </p>
+
+        <button [disabled]="isLoading || f.invalid" mat-button color="accent">Submit</button>
+
+        <p *ngIf="errorMessage.length>0" class="error">{{errorMessage}}</p>
+    </fieldset>
+</form>

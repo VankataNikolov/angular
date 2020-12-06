@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
 import { UserService } from 'src/app/user/user.service';
+import { tokens } from '../../shared/constants'
 
 @Component({
   selector: 'app-header',
@@ -10,17 +11,19 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class HeaderComponent {
 
+  tokens = tokens;
+
   constructor(
     private userService: UserService,
     private router: Router,
     private authService: AuthService) { }
 
   get isLogged(): boolean {
-    return this.authService.getToken('user-token');
+    return this.authService.getToken(this.tokens.user);
   }
 
   get userName(): string {
-    return this.authService.getToken('userName');
+    return this.authService.getToken(this.tokens.name);
   }
   
   logoutHandler(): void {

@@ -6,7 +6,7 @@
     <p class="field">
       <label for="title">Title</label>
       <input #gameTitle="ngModel" [class.input-error]="gameTitle.touched && !!gameTitle.errors" type="text" name="title"
-        id="title" placeholder="Star Wars" ngModel required maxlength="100">
+        id="title" ngModel required maxlength="100">
     </p>
 
     <p *ngIf="gameTitle.touched && gameTitle.errors?.required" class="error">
@@ -24,7 +24,7 @@
         pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+(?:png|jpg|jpeg|gif|svg)+$">
     </p>
 
-    <p *ngIf="gameImage.touched && gameImage.value.length>0 && gameImage.errors?.pattern" class="error">
+    <p *ngIf="gameImage.touched && gameImage.value?.length>0 && gameImage.errors?.pattern" class="error">
       Image must be url or empty !
     </p>
 
@@ -33,9 +33,9 @@
       <textarea cols="42" rows="5" #gameDescr="ngModel" [class.input-error]="gameDescr.touched && !!gameDescr.errors"
         type="text" name="description" id="description" maxlength="maxLen" ngModel></textarea>
     </p>
-    <p class="countdown">{{gameDescr.value.length | countDown: maxLen}}</p>
+    <p class="countdown">{{gameDescr.value?.length | countDown: maxLen}}</p>
 
-    <p *ngIf="gameDescr.touched && gameDescr.value.length <= 0" class="error">
+    <p *ngIf="gameDescr.touched && gameDescr.value?.length <= 0" class="error">
       description is required!
     </p>
 

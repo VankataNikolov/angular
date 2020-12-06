@@ -1,5 +1,5 @@
 <app-loader [isLoading]="isLoading"></app-loader>
-<div *ngIf="!isLoading" class="list-wrapper">
+<div [@cardEnter]="gamesData.length" *ngIf="!isLoading" class="list-wrapper">
     <div *ngFor="let game of games">
         <app-game [title]="game.title" [image]="game.image" [description]="game.description" [gameId]="game.objectId"></app-game>
     </div>

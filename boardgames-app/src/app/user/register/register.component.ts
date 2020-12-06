@@ -23,7 +23,11 @@ export class RegisterComponent {
         this.router.navigate(['/user/login']);
       },
       error: (err) => {
-        this.errorMessage = err.error.message;
+        if(err.error.message.includes('Duplicate') && err.error.message.includes('\'name\'')){
+          this.errorMessage = 'User with this name exists';
+        } else {
+          this.errorMessage = err.error.message;
+        }
         this.isLoading = false;
         setTimeout(() => { this.errorMessage = ""; }, 6000);
       }

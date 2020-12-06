@@ -5,21 +5,28 @@ import { RegisterComponent } from './register/register.component';
 import { UserRoutingModule } from './user-routing.module';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { NewGameComponent } from './new-game/new-game.component';
 import { SharedModule } from '../shared/shared.module';
+import { CommentComponent } from './comment/comment.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, NewGameComponent],
+  declarations: [
+    LoginComponent,
+    RegisterComponent,
+    NewGameComponent,
+    CommentComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
     UserRoutingModule,
     MatFormFieldModule,
-    MatInputModule,
     SharedModule
+  ],
+  exports: [
+    CommentComponent
   ]
 })
 export class UserModule { }

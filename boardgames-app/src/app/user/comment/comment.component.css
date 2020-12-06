@@ -1,0 +1,94 @@
+form.game-comment {
+  width: 60%;
+  margin: 5px auto;
+  text-align: center;
+}
+
+.game-comment fieldset {
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.game-comment h2 {
+  padding-top: 0;
+  border-bottom: none;
+}
+
+.game-comment p {
+  padding-bottom: 0;
+  padding-top: 20px;
+}
+
+.game-comment label {
+  min-width: 60px;
+}
+
+.game-comment input {
+  flex: 0 1 75%;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.game-comment button {
+  background-color: #55b989;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 30px;
+  width: 40%;
+  outline: none;
+}
+
+.game-comment button:hover {
+  cursor: pointer;
+}
+
+.game-comment a {
+  color: #7B1FA2;
+}
+
+.game-comment a:hover {
+  color: #7B1FA2;
+}
+
+.game-comment .field {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 0;
+}
+
+.game-comment p.error {
+  text-align: left;
+  color: red;
+  padding-top: 0;
+}
+
+.game-comment input.input-error {
+  border: 1px solid red;
+}
+
+.game-comment fieldset {
+  padding: 5px;
+}
+
+.game-comment #comment {
+  resize: none;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.game-comment .countdown {
+  text-align: right;
+  padding: 0;
+  margin-top: -10px;
+  margin-right: 30px;
+}
+
+.game-comment button {
+  margin-top: 5px;
+  width: 15%;
+}

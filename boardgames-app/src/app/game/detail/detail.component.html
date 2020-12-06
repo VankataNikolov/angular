@@ -10,7 +10,15 @@
     </div>
 </div>
 
+<div class="btn-comment" *ngIf="isLogged">
+    <button (click)="toggleForm()">Comment it</button>
+</div>
+
+<div [@fadeAnimation] *ngIf="isFormOpen">
+    <app-comment ></app-comment>
+</div>
+
 <div class="comments-container">
-    <h3>Comments:</h3>
+    <h3>...and your thoughts</h3>
     <app-comment-list></app-comment-list>
 </div>

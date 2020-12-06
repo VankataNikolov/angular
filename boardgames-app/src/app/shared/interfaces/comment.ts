@@ -6,5 +6,6 @@ export interface IComment {
     "title": string,
     "ownerId": string,
     "updated": number,
-    "objectId": string
+    "objectId": string,
+    "name": string
 }

@@ -27,13 +27,18 @@ export class NewGameComponent implements OnInit {
   submitFormHandler(formValue: IPostGame): void{
     this.isLoading = true;
     this.errorMessage = "";
+    formValue.title = formValue.title.toLowerCase();
     this.userService.postGame(formValue).subscribe({
-      next: (data) => {
+      next: () => {
         this.isLoading = false;
         this.router.navigate(['/game/list']);
       },
       error: (err) => {
-        this.errorMessage = err.error.message;
+        if(err.error.message.includes("Duplicate")){
+          this.errorMessage = 'This game is already added !';
+        } else {
+          this.errorMessage = err.error.message;
+        }
         this.isLoading = false;
         setTimeout(() => { this.errorMessage = ""; }, 6000);
       }

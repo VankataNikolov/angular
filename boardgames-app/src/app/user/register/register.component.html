@@ -45,15 +45,14 @@
     <p class="field">
       <label for="repassword">Password</label>
       <input #userRepassword="ngModel" [class.input-error]="userRepassword.touched && !!userRepassword.errors"
-        type="password" name="repassword" id="repassword" placeholder="******" ngModel required minlength="6">
+        type="password" name="repassword" id="repassword" placeholder="******" ngModel>
     </p>
 
-    <p *ngIf="userRepassword.touched && userRepassword.value !== userPassword.value" class="error">
+    <p *ngIf="userRepassword.touched && (userRepassword.value !== userPassword.value)" class="error">
       Password not match!
     </p>
 
     <button [disabled]="isLoading || f.invalid">Register</button>
-    <app-loader [isLoading]="isLoading"></app-loader>
 
     <p *ngIf="errorMessage.length>0" class="error">{{errorMessage}}</p>
   </fieldset>

@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { cardEnter } from 'src/app/shared/animations.module';
 import { IGame } from 'src/app/shared/interfaces';
 import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-game-list',
   templateUrl: './game-list.component.html',
-  styleUrls: ['./game-list.component.scss']
+  styleUrls: ['./game-list.component.scss'],
+  animations: [cardEnter]
 })
 export class GameListComponent implements OnInit {
 
@@ -27,7 +29,6 @@ export class GameListComponent implements OnInit {
 
   public handlePage(e: PageEvent) {
     this.currentPage = e.pageIndex;
-    this.pageSize = e.pageSize;
     this.iterator();
   }
 

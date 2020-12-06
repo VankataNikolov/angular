@@ -8,7 +8,12 @@ import { CountDownPipe } from './count-down.pipe';
 
 
 @NgModule({
-  declarations: [LoaderComponent, CheckImgPipe, NotFoundComponent, CountDownPipe],
+  declarations: [
+    LoaderComponent,
+    CheckImgPipe,
+    NotFoundComponent,
+    CountDownPipe
+  ],
   imports: [
     CommonModule,
   ],

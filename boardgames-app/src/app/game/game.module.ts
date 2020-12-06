@@ -24,6 +24,7 @@ import { CommentListComponent } from './comment-list/comment-list.component';
     SharedModule,
     MatPaginatorModule,
     RouterModule,
+    UserModule
   ],
   exports: [
 

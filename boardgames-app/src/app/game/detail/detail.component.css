@@ -9,7 +9,7 @@
 }
 
 .info-container .img-wrapper {
-  width: 300px;
+  width: 400px;
   height: 150px;
 }
 
@@ -31,4 +31,25 @@
 
 .comments-container h3 {
   text-align: center;
+}
+
+.btn-comment {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.btn-comment button {
+  margin: 0 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: #55b989;
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  outline: none;
+}
+
+.btn-comment button:hover {
+  cursor: pointer;
 }

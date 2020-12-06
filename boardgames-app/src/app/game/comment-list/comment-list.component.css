@@ -35,6 +35,8 @@
 .container article .created {
   text-align: right;
   font-style: italic;
-  font-size: 10px;
+  font-size: 11px;
   margin: 0;
+  display: flex;
+  justify-content: space-between;
 }

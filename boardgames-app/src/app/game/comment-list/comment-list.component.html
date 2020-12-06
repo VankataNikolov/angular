@@ -9,7 +9,7 @@
     <article *ngFor="let comment of commentList">
         <p class="title">{{comment.title}}</p>
         <p class="comment">{{comment.comment}}</p>
-        <p class="created">{{comment.created | date}}</p>
+        <p class="created"><span>posted by <b>{{comment.name}}</b></span><span>{{comment.created | date}}</span></p>
     </article>
 </div>
 
