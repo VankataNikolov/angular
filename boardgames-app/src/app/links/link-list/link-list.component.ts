@@ -11,12 +11,25 @@ import { LinkService } from '../link.service';
 })
 export class LinkListComponent implements OnInit {
   
-  linkList: ILink[];
+  linkList: ILink[] = [];
+  isLoading = false;
+  errorMessage = "";
 
   constructor(private linkService: LinkService) { }
 
   ngOnInit(): void {
-    this.linkList = this.linkService.getLinks();
+    this.isLoading = true;
+    this.errorMessage = "";
+    this.linkService.getLinks().subscribe({
+      next: (data) => {
+        this.linkList = data;
+        this.isLoading = false;
+      },
+      error: (err) => {
+        this.errorMessage = err.error.message;
+        this.isLoading = false;
+      }
+    })
 
   }
 

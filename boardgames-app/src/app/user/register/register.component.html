@@ -1,4 +1,4 @@
-<form #f="ngForm" class="register" (ngSubmit)="submitFormHandler(f.value)">
+<form #f="ngForm" class="register" [class.loading-form]="isLoading" (ngSubmit)="submitFormHandler(f.value)">
 
   <fieldset>
     <h2>Register Form</h2>

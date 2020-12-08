@@ -19,10 +19,9 @@ export const fadeAnimation = trigger('fadeAnimation', [
 export const cardEnter = trigger('cardEnter', [
     transition('* => *', [
         query(':enter', style({ opacity: 0 }), { optional: true }),
-        query(':enter', stagger('300ms', [
-            animate('1s ease-in', keyframes([
+        query(':enter', stagger('250ms', [
+            animate('600ms ease-in', keyframes([
                 style({ opacity: 0, transform: 'translateX(-40px)', offset: 0 }),
-                style({ opacity: 0.5, transform: 'translateX(-10px)', offset: 0.5 }),
                 style({ opacity: 1, transform: 'translateX(0)', offset: 1 })
             ]))
         ]), { optional: true })

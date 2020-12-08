@@ -3,4 +3,10 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+mat-paginator {
+  background: #f2ece4;
+  background: linear-gradient(145deg, #f2ece4 0%, #a09d9a 75%, #414141 100%);
 }

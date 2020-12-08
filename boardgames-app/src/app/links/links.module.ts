@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LinkListComponent } from './link-list/link-list.component';
 import { MatListModule } from '@angular/material/list';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -9,7 +10,8 @@ import { MatListModule } from '@angular/material/list';
   declarations: [LinkListComponent],
   imports: [
     CommonModule,
-    MatListModule
+    MatListModule,
+    SharedModule
   ]
 })
 export class LinksModule { }

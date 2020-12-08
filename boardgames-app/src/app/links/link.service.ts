@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { ILink } from '../shared/interfaces';
-import { linkList } from '../shared/data/links'
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LinkService {
 
-  constructor() { }
+  apiUrl: string = environment.baseUrl;
 
-  getLinks(): ILink[]{
-    return linkList;
+  constructor(private http: HttpClient) { }
+
+  getLinks(): Observable<ILink[]>{
+    return this.http.get<ILink[]>(`${this.apiUrl}/data/links`);
   }
 }

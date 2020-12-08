@@ -4,6 +4,11 @@ html, body {
 }
 
 body {
+  background-color: #f2ece4;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.loading-form {
+  opacity: 50%;
 }

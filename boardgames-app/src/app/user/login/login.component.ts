@@ -25,7 +25,11 @@ export class LoginComponent {
         this.router.navigate(['/']);
       },
       error: (err) => {
-        this.errorMessage = err.error.message;
+        let message = err.error.message;
+        if(message.includes("login") && message.includes("Invalid")){
+          message = message.replace("login", "email");
+        }
+        this.errorMessage = message;
         this.isLoading = false;
         setTimeout(() => { this.errorMessage = ""; }, 6000);
       }

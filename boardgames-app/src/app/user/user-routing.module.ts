@@ -16,24 +16,21 @@ const routes: Routes = [
           component: RegisterComponent,
           data: {
             isLogged: false,
-            noNavigation: true,
-            title: 'USER REGISTER'
+            noNavigation: true
           },
         },
         {
           path: 'login',
           component: LoginComponent,
           data: {
-            isLogged: false,
-            title: 'USER LOGIN'
+            isLogged: false
           },
         },
         {
           path: 'newgame',
           component: NewGameComponent,
           data: {
-            isLogged: true,
-            title: 'USER NEWGAME'
+            isLogged: true
           },
         }
       ]

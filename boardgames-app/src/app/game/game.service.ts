@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { AuthService } from '../shared/auth.service';
 import { IComment, IGame } from '../shared/interfaces';
 import { tokens } from '../shared/constants'
 
@@ -16,10 +14,26 @@ export class GameService {
   apiUrl: string = environment.baseUrl;
   tokens = tokens;
 
+  pageSize = 4;
+  currentPage = 0;
+
 
   constructor(
     private http: HttpClient
     ) { }
+
+  countGames(): Observable<any> {
+    return this.http.get<Observable<any>>(
+      `${this.apiUrl}/data/boardgames?property=Count(title)`
+    ); 
+  }
+
+  loadPartial(newPage: number): Observable<IGame[]>{
+    this.currentPage = newPage;
+    return this.http.get<IGame[]>(
+      `${this.apiUrl}/data/boardgames?pageSize=${this.pageSize}&offset=${this.currentPage * this.pageSize}&sortBy=created%20desc`
+    );
+  }
 
   loadGames(): Observable<IGame[]>{
     return this.http.get<IGame[]>(`${this.apiUrl}/data/boardgames`);
@@ -30,7 +44,7 @@ export class GameService {
   }
 
   loadComments(data: string): Observable<IComment[]>{
-    return this.http.get<IComment[]>(`${this.apiUrl}/data/comments?where=gameID%3D%27${data}%27`);
+    return this.http.get<IComment[]>(`${this.apiUrl}/data/comments?where=gameID%3D%27${data}%27&sortBy=created%20desc`);
   }
 
 

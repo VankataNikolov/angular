@@ -1,4 +1,4 @@
-<form #f="ngForm" class="game-comment" (ngSubmit)="submitFormHandler(f.value)">
+<form #f="ngForm" class="game-comment" [class.loading-form]="isLoading" (ngSubmit)="submitFormHandler(f.value)">
 
     <fieldset>
         <p class="field">

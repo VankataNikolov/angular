@@ -1,7 +1,8 @@
 <app-loader [isLoading]="isLoading"></app-loader>
 <div [@cardEnter]="gamesData.length" *ngIf="!isLoading" class="list-wrapper">
-    <div *ngFor="let game of games">
+    <div *ngFor="let game of gamesData">
         <app-game [title]="game.title" [image]="game.image" [description]="game.description" [gameId]="game.objectId"></app-game>
     </div>
 </div>
-<mat-paginator [length]="gamesData.length" [pageSize]="pageSize" [hidePageSize]="true" (page)="handlePage($event)"></mat-paginator>
+<p *ngIf="errorMessage.length>0">{{errorMessage}}</p>
+<mat-paginator [length]="count" [pageSize]="pageSize" [hidePageSize]="true" [pageIndex]="currentPage" (page)="handlePage($event)"></mat-paginator>

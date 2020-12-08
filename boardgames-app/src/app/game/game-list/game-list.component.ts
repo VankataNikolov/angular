@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { forkJoin } from 'rxjs';
 import { cardEnter } from 'src/app/shared/animations.module';
 import { IGame } from 'src/app/shared/interfaces';
 import { GameService } from '../game.service';
@@ -12,47 +13,57 @@ import { GameService } from '../game.service';
 })
 export class GameListComponent implements OnInit {
 
-  pageSize = 4;
-  currentPage = 0;
+  pageSize = this.gameService.pageSize;
+  currentPage = this.gameService.currentPage;
+  count: number;
 
   gamesData: IGame[] = [];
-
-  games: IGame[] = [];
 
   isLoading = false;
 
   errorMessage = '';
 
-  constructor(private gameService: GameService) { 
-    
+  constructor(private gameService: GameService) {
+
   }
 
   public handlePage(e: PageEvent) {
     this.currentPage = e.pageIndex;
-    this.iterator();
+    this.iterator(e.pageIndex);
   }
 
-  private iterator() {
-    const end = (this.currentPage + 1) * this.pageSize;
-    const start = this.currentPage * this.pageSize;
-    const part = this.gamesData.slice(start, end);
-    this.games = part;
-  }
-
-  ngOnInit(): void {
+  private iterator(page: number) {
     this.isLoading = true;
-    this.gameService.loadGames().subscribe({
+    forkJoin([this.gameService.countGames(), this.gameService.loadPartial(page)]).subscribe({
       next: (data) => {
-        this.gamesData = data;
+        this.count = data[0][0].count;
+        this.gamesData = data[1];
         this.isLoading = false;
-        this.iterator();
       },
       error: (err) => {
         this.errorMessage = err.error.message;
         this.isLoading = false;
       }
-    });
-    this.iterator();
+    })
+    // const end = (this.currentPage + 1) * this.pageSize;
+    // const start = this.currentPage * this.pageSize;
+    // const part = this.gamesData.slice(start, end);
+  }
+
+  ngOnInit(): void {
+    // this.isLoading = true;
+    // this.gameService.loadGames().subscribe({
+    //   next: (data) => {
+    //     this.gamesData = data;
+    //     this.isLoading = false;
+    //     this.iterator();
+    //   },
+    //   error: (err) => {
+    //     this.errorMessage = err.error.message;
+    //     this.isLoading = false;
+    //   }
+    // });
+    this.iterator(this.gameService.currentPage);
   }
 
 }
