@@ -9,6 +9,7 @@ import { UserModule } from '../user/user.module';
 import { RouterModule } from '@angular/router';
 import { DetailComponent } from './detail/detail.component';
 import { CommentListComponent } from './comment-list/comment-list.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CommentListComponent } from './comment-list/comment-list.component';
     GameComponent,
     GameListComponent,
     DetailComponent,
-    CommentListComponent
+    CommentListComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,

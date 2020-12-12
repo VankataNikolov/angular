@@ -1,0 +1,6 @@
+<input #input type="text" placeholder="search game">
+<ul class="list">
+    <li *ngFor="let game of (games$ | async)">
+        <a [routerLink]="['/game/detail', game.objectId]">{{game.title}}</a>
+    </li>
+</ul>

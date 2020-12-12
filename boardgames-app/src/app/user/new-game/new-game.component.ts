@@ -35,7 +35,7 @@ export class NewGameComponent implements OnInit {
       },
       error: (err) => {
         if(err.error.message.includes("Duplicate")){
-          this.errorMessage = 'This game is already added !';
+          this.errorMessage = 'This game exists !';
         } else {
           this.errorMessage = err.error.message;
         }

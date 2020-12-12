@@ -47,5 +47,8 @@ export class GameService {
     return this.http.get<IComment[]>(`${this.apiUrl}/data/comments?where=gameID%3D%27${data}%27&sortBy=created%20desc`);
   }
 
+  getSearchList(inputValue: string): Observable<IGame[]>{
+    return this.http.get<IGame[]>(`${this.apiUrl}/data/boardgames?where=title%20like%20%27%25${inputValue}%25%27`);
+  }
 
 }

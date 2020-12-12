@@ -1,0 +1,28 @@
+input{
+    margin: 15px 0 0 15px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.list{
+    padding: 0;
+    margin: 0;
+    margin-left: 15px;
+    width: 130px;
+    background-color: white;
+    position: absolute;
+    z-index: 1;
+
+    li{
+        list-style: none;
+        &:hover{
+            background-color: lightblue;
+        }
+        a{
+            display: inline-block;
+            width: 100%;
+            text-decoration: none;
+            font-size: 12px;
+        }
+    }
+}
