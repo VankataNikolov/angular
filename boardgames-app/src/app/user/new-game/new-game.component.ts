@@ -27,7 +27,7 @@ export class NewGameComponent implements OnInit {
   submitFormHandler(formValue: IPostGame): void{
     this.isLoading = true;
     this.errorMessage = "";
-    formValue.title = formValue.title.toLowerCase();
+    formValue.title = formValue.title.toLowerCase().trim();
     this.userService.postGame(formValue).subscribe({
       next: () => {
         this.isLoading = false;

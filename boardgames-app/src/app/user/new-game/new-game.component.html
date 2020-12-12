@@ -1,4 +1,4 @@
-<form #f="ngForm" class="new-game" (ngSubmit)="submitFormHandler(f.value)">
+<form #f="ngForm" class="new-game" [class.loading-form]="isLoading" (ngSubmit)="submitFormHandler(f.value)">
 
   <fieldset>
     <h2>New Game</h2>
@@ -44,7 +44,6 @@
     </p>
 
     <button [disabled]="isLoading || f.invalid">Add</button>
-    <app-loader [isLoading]="isLoading"></app-loader>
 
     <p *ngIf="errorMessage.length>0" class="error">{{errorMessage}}</p>
   </fieldset>
