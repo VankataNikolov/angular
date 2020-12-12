@@ -4,7 +4,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserRoutingModule } from './user-routing.module';
 import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { NewGameComponent } from './new-game/new-game.component';
 import { SharedModule } from '../shared/shared.module';
 import { CommentComponent } from './comment/comment.component';
@@ -22,7 +21,6 @@ import { CommentComponent } from './comment/comment.component';
     CommonModule,
     FormsModule,
     UserRoutingModule,
-    MatFormFieldModule,
     SharedModule
   ],
   exports: [

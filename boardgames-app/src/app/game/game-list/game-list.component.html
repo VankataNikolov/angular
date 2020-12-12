@@ -8,4 +8,4 @@
     </div>
 </div>
 <p *ngIf="errorMessage.length>0">{{errorMessage}}</p>
-<mat-paginator [length]="count" [pageSize]="pageSize" [hidePageSize]="true" [pageIndex]="currentPage" (page)="handlePage($event)"></mat-paginator>
+<mat-paginator [length]="count" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" [pageIndex]="currentPage" (page)="handlePage($event)"></mat-paginator>

@@ -31,7 +31,7 @@
     <p class="field">
       <label for="description">Description</label>
       <textarea cols="42" rows="5" #gameDescr="ngModel" [class.input-error]="gameDescr.touched && !!gameDescr.errors"
-        type="text" name="description" id="description" maxlength="maxLen" ngModel></textarea>
+        type="text" name="description" id="description" ngModel></textarea>
     </p>
     <p class="countdown">{{gameDescr.value?.length | countDown: maxLen}}</p>
 
@@ -39,7 +39,7 @@
       description is required!
     </p>
 
-    <p *ngIf="gameDescr.touched && gameDescr.errors?.maxlength" class="error">
+    <p *ngIf="gameDescr.touched && gameDescr.value.length>500" class="error">
       maximum characters is 500!
     </p>
 

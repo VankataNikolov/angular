@@ -14,8 +14,9 @@ export class GameService {
   apiUrl: string = environment.baseUrl;
   tokens = tokens;
 
-  pageSize = 4;
+  pageSize = 8;
   currentPage = 0;
+  pageSizeOptions = [4, 8];
 
 
   constructor(
@@ -28,8 +29,9 @@ export class GameService {
     ); 
   }
 
-  loadPartial(newPage: number): Observable<IGame[]>{
+  loadPartial(newPage: number, pageSize: number): Observable<IGame[]>{
     this.currentPage = newPage;
+    this.pageSize = pageSize;
     return this.http.get<IGame[]>(
       `${this.apiUrl}/data/boardgames?pageSize=${this.pageSize}&offset=${this.currentPage * this.pageSize}&sortBy=created%20desc`
     );

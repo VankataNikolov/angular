@@ -21,6 +21,9 @@
         <p *ngIf="comment.touched && comment.value?.length <= 0" class="error">
             Comment text is required!
         </p>
+        <p *ngIf="comment.touched && comment.value.length>500" class="error">
+            maximum characters is 500!
+          </p>
 
         <button [disabled]="isLoading || f.invalid" mat-button color="accent">Submit</button>
 

@@ -14,6 +14,7 @@ import { GameService } from '../game.service';
 export class GameListComponent implements OnInit {
 
   pageSize = this.gameService.pageSize;
+  pageSizeOptions = this.gameService.pageSizeOptions;
   currentPage = this.gameService.currentPage;
   count: number;
 
@@ -29,12 +30,12 @@ export class GameListComponent implements OnInit {
 
   public handlePage(e: PageEvent) {
     this.currentPage = e.pageIndex;
-    this.iterator(e.pageIndex);
+    this.iterator(e.pageIndex, e.pageSize);
   }
 
-  private iterator(page: number) {
+  private iterator(page: number, pageSize: number) {
     this.isLoading = true;
-    forkJoin([this.gameService.countGames(), this.gameService.loadPartial(page)]).subscribe({
+    forkJoin([this.gameService.countGames(), this.gameService.loadPartial(page, pageSize)]).subscribe({
       next: (data) => {
         this.count = data[0][0].count;
         this.gamesData = data[1];
@@ -63,7 +64,7 @@ export class GameListComponent implements OnInit {
     //     this.isLoading = false;
     //   }
     // });
-    this.iterator(this.gameService.currentPage);
+    this.iterator(this.gameService.currentPage, this.gameService.pageSize);
   }
 
 }
